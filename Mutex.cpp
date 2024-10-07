@@ -15,9 +15,9 @@ This program would always leave 0 resoures after executing.*/
 void boo(){
     mtx.lock();
     resources--;             // critical section       
-    mtx.unlock();
+    mtx.unlock();            // make sure to unlock as it
     /* or we can use
-        lock_guard<mutex> lock(mtx);    // this wont need unlocking manually
+        lock_guard<mutex> lockGuard(mtx);    // this will call unlock() when goes out of scope similar to jthread
         resources--;
     */
 }
